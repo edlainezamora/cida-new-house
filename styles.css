@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Nunito:wght@400;600;700&display=swap');
+
+:root {
+  --pink: #e91e8c;
+  --pink-light: #f8d0e8;
+  --pink-dark: #c2185b;
+  --bg: #fff5f9;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: var(--bg);
+}
+
+.font-cursive {
+  font-family: 'Dancing Script', cursive;
+}
+
+/* Hero */
+.hero-section {
+  background: linear-gradient(135deg, var(--pink) 0%, #ff6fb7 50%, #ffb3d9 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: var(--bg);
+  clip-path: ellipse(55% 100% at 50% 100%);
+}
+
+.hero-section h1 {
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+  font-size: 2.8rem;
+}
+
+.profile-photo img {
+  transition: transform 0.3s;
+}
+.profile-photo img:hover {
+  transform: scale(1.05);
+}
+
+/* Cards */
+.card {
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(233,30,140,0.15) !important;
+}
+
+.card-bought {
+  opacity: 0.65;
+  filter: grayscale(40%);
+}
+.card-bought:hover {
+  transform: none;
+}
+
+.item-photo {
+  height: 200px;
+  object-fit: contain;
+  background-color: #f8f8f8;
+  padding: 8px;
+}
+
+/* Buttons */
+.btn-pink {
+  background-color: var(--pink);
+  border-color: var(--pink);
+  color: #fff;
+}
+.btn-pink:hover {
+  background-color: var(--pink-dark);
+  border-color: var(--pink-dark);
+  color: #fff;
+}
+
+.btn-add-item {
+  background-color: #fff;
+  border: 2px dashed var(--pink);
+  color: var(--pink);
+  border-radius: 12px;
+  padding: 12px 32px;
+}
+.btn-add-item:hover {
+  background-color: var(--pink-light);
+  color: var(--pink-dark);
+}
+
+/* Modal */
+.bg-pink {
+  background-color: var(--pink) !important;
+}
+
+/* Footer */
+footer {
+  background-color: #fff;
+}
+
+/* Badge wrap */
+.badge-wrap {
+  white-space: normal;
+  word-break: break-word;
+  line-height: 1.4;
+}
