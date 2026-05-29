@@ -12,6 +12,7 @@ const photoPreview = document.getElementById("photoPreview");
 let pendingGiftItemId = null;
 let pendingGiftPersonName = null;
 let selectedPhotoBase64 = null;
+let pendingCancelItemId = null;
 
 function renderItem(item, id) {
   var isBought = item.bought === true;
@@ -86,14 +87,24 @@ function handleGift(itemId, itemName) {
 }
 
 function cancelGift(itemId) {
-  db.collection("items").doc(itemId).update({
+  pendingCancelItemId = itemId;
+  var modal = new bootstrap.Modal(document.getElementById("cancelModal"));
+  modal.show();
+}
+
+document.getElementById("btnConfirmCancel").addEventListener("click", function () {
+  if (!pendingCancelItemId) return;
+  db.collection("items").doc(pendingCancelItemId).update({
     bought: false,
     boughtBy: "",
+  }).then(function () {
+    bootstrap.Modal.getInstance(document.getElementById("cancelModal")).hide();
   }).catch(function (err) {
     alert("Erro ao cancelar presente. Tente novamente.");
     console.error(err);
   });
-}
+  pendingCancelItemId = null;
+});
 
 btnConfirmGift.addEventListener("click", function () {
   if (!pendingGiftItemId) return;

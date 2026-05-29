@@ -59,23 +59,26 @@ body {
 }
 
 .card-bought {
-  opacity: 0.65;
-  filter: grayscale(40%);
-}
-.card-bought .btn-cancel {
-  filter: none;
   opacity: 1;
+  filter: none;
+}
+.card-bought .card-img-top,
+.card-bought .card-title,
+.card-bought .badge {
+  opacity: 0.6;
+  filter: grayscale(40%);
 }
 
 .btn-cancel {
-  background-color: #f8d7da;
-  border-color: #f1aeb5;
-  color: #dc3545;
+  background-color: #dc3545;
+  border-color: #dc3545;
+  color: #fff;
+  font-weight: 600;
 }
 .btn-cancel:hover {
-  background-color: #f1aeb5;
-  border-color: #e68a93;
-  color: #b02a37;
+  background-color: #b02a37;
+  border-color: #a52834;
+  color: #fff;
 }
 .card-bought:hover {
   transform: none;
