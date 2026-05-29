@@ -26,8 +26,8 @@ function renderItem(item, id) {
       '<div class="card-body d-flex flex-column">' +
         '<h5 class="card-title text-center">' + item.name + '</h5>' +
         (isBought
-          ? '<div class="mt-auto text-center">' +
-              '<span class="badge bg-success fs-6 badge-wrap"><i class="bi bi-check-circle me-1"></i>Presenteado por ' + item.boughtBy + '</span>' +
+          ? '<div class="mt-auto d-flex flex-column">' +
+              '<span class="badge bg-success fs-6 badge-wrap w-100"><i class="bi bi-check-circle me-1"></i>Presenteado por ' + item.boughtBy + '</span>' +
               '<button class="btn btn-cancel w-100 mt-2" onclick="cancelGift(\'' + id + '\')">' +
                 '<i class="bi bi-x-circle me-1"></i>Cancelar' +
               '</button>' +
