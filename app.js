@@ -27,7 +27,7 @@ function renderItem(item, id) {
         (isBought
           ? '<div class="mt-auto text-center">' +
               '<span class="badge bg-success fs-6 badge-wrap"><i class="bi bi-check-circle me-1"></i>Presenteado por ' + item.boughtBy + '</span>' +
-              '<button class="btn btn-outline-danger btn-sm w-100 mt-2" onclick="cancelGift(\'' + id + '\')">' +
+              '<button class="btn btn-cancel w-100 mt-2" onclick="cancelGift(\'' + id + '\')">' +
                 '<i class="bi bi-x-circle me-1"></i>Cancelar' +
               '</button>' +
             '</div>'
