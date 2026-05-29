@@ -27,6 +27,9 @@ function renderItem(item, id) {
         (isBought
           ? '<div class="mt-auto text-center">' +
               '<span class="badge bg-success fs-6 badge-wrap"><i class="bi bi-check-circle me-1"></i>Presenteado por ' + item.boughtBy + '</span>' +
+              '<button class="btn btn-outline-danger btn-sm w-100 mt-2" onclick="cancelGift(\'' + id + '\')">' +
+                '<i class="bi bi-x-circle me-1"></i>Cancelar' +
+              '</button>' +
             '</div>'
           : '<div class="mt-auto">' +
               '<input type="text" class="form-control mb-2" placeholder="Seu nome (opcional)" id="input-' + id + '">' +
@@ -80,6 +83,16 @@ function handleGift(itemId, itemName) {
   document.getElementById("confirmItemName").textContent = itemName;
   var modal = new bootstrap.Modal(document.getElementById("confirmModal"));
   modal.show();
+}
+
+function cancelGift(itemId) {
+  db.collection("items").doc(itemId).update({
+    bought: false,
+    boughtBy: "",
+  }).catch(function (err) {
+    alert("Erro ao cancelar presente. Tente novamente.");
+    console.error(err);
+  });
 }
 
 btnConfirmGift.addEventListener("click", function () {
